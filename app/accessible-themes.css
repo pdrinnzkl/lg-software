@@ -1,0 +1,421 @@
+.accessibility-tools {
+  position: fixed;
+  z-index: 200;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  display: grid;
+  justify-items: end;
+  gap: 10px;
+  color: #f8f8f4;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+.accessibility-trigger,
+.accessibility-panel {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: #101010;
+  color: inherit;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+}
+.accessibility-panel[hidden] {
+  display: none;
+}
+.accessibility-trigger {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 9px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.accessibility-trigger:focus-visible,
+.accessibility-panel button:focus-visible {
+  outline: 3px solid #ffe500;
+  outline-offset: 3px;
+}
+.accessibility-panel {
+  display: grid;
+  width: min(340px, calc(100vw - 36px));
+  gap: 6px;
+  padding: 14px;
+  border-radius: 18px;
+  backdrop-filter: blur(16px);
+}
+.accessibility-panel > p {
+  margin: 2px 8px 8px;
+  color: #c6c6c0;
+  font:
+    700 11px var(--font-geist-mono),
+    monospace;
+  letter-spacing: 0.11em;
+}
+.accessibility-panel button {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 12px;
+  padding: 0 10px;
+  border-radius: 11px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+}
+.accessibility-panel button:hover,
+.accessibility-panel button.is-selected {
+  background: rgba(255, 255, 255, 0.13);
+}
+.accessibility-check {
+  margin-left: auto;
+  color: #ffe500;
+  font-size: 12px;
+  font-weight: 700;
+}
+.accessibility-panel > small {
+  padding: 7px 8px 2px;
+  color: #c6c6c0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+html[data-large-text="true"] body {
+  font-size: 112.5%;
+}
+html[data-large-text="true"]
+  :is(p, li, label, input, select, textarea, button, a, small) {
+  font-size: max(1em, 16px);
+  line-height: 1.55;
+}
+html[data-large-text="true"] :is(.section-label, .eyebrow, .scene-kicker) {
+  font-size: 14px;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --ink: #f4f5f7;
+  --ink-2: #e9edf2;
+  --panel: #ffffff;
+  --panel-2: #f0f3f7;
+  --paper: #172334;
+  --paper-2: #28394d;
+  --muted: #4c5c70;
+  --muted-2: #5c6c7f;
+  --line: rgba(24, 45, 70, 0.2);
+  --line-strong: rgba(24, 45, 70, 0.34);
+  --accent: #8a7200;
+  --blue: #183761;
+  --glow: 0 0 32px rgba(24, 55, 97, 0.14);
+  background: #f4f5f7;
+}
+html[data-theme="light"] body,
+html[data-theme="light"] .landing-shell,
+html[data-theme="light"] .app-shell,
+html[data-theme="light"] .app-workspace {
+  background: #f4f5f7;
+  color: #172334;
+}
+html[data-theme="light"] .landing-nav,
+html[data-theme="light"] .app-sidebar,
+html[data-theme="light"] .app-topbar,
+html[data-theme="light"] .app-content,
+html[data-theme="light"] .app-card,
+html[data-theme="light"] .dashboard-card,
+html[data-theme="light"] .standings-card,
+html[data-theme="light"] .match-card,
+html[data-theme="light"] .agenda-card,
+html[data-theme="light"] .profile-card,
+html[data-theme="light"] .sports-card,
+html[data-theme="light"] .admin-card,
+html[data-theme="light"] .auth-panel,
+html[data-theme="light"] .accessibility-panel {
+  background-color: #fff;
+  color: #172334;
+  border-color: rgba(24, 45, 70, 0.2);
+}
+html[data-theme="light"] .landing-nav {
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 12px 38px rgba(26, 45, 70, 0.12);
+}
+html[data-theme="light"] .cinematic-sequence,
+html[data-theme="light"] .landing-footer,
+html[data-theme="light"] .auth-aside {
+  background: #e9edf2;
+  color: #172334;
+}
+html[data-theme="light"] .canvas-sticky::before {
+  background: radial-gradient(
+    circle at 65% 45%,
+    transparent 0 24%,
+    rgba(244, 245, 247, 0.65) 76%
+  );
+}
+html[data-theme="light"]
+  :is(.landing-shell, .app-shell, .app-workspace, .auth-layout)
+  :is(h1, h2, h3, h4, p, span, small, label, a, strong, li) {
+  color: inherit;
+}
+html[data-theme="light"]
+  :is(
+    .app-sidebar,
+    .app-topbar,
+    .app-content,
+    .app-card,
+    .dashboard-card,
+    .standings-card,
+    .match-card,
+    .agenda-card,
+    .profile-card,
+    .sports-card,
+    .admin-card,
+    .form-field,
+    .match-row,
+    .table-row,
+    .stat-card
+  ) {
+  border-color: rgba(24, 45, 70, 0.17);
+  background-color: #fff;
+  color: #172334;
+}
+html[data-theme="light"]
+  :is(
+    .dashboard-hero,
+    .dashboard-section,
+    .next-match-feature,
+    .admin-panel,
+    .admin-robot-card,
+    .admin-match-list,
+    .referee-games,
+    .referee-ready,
+    .match-detail-hero,
+    .match-detail-grid,
+    .sports-editorial,
+    .agenda-list,
+    .match-card,
+    .match-card-grid,
+    .standings-table-wrap,
+    .class-admin-row,
+    .admin-overview-grid,
+    .admin-security,
+    .admin-metrics,
+    .health-panel,
+    .settings-panel,
+    .profile-editor,
+    .profile-card,
+    .empty-state,
+    .data-error,
+    .live-banner,
+    .result-strip,
+    .feature-foot,
+    .feature-score,
+    .mini-card,
+    .event-timeline,
+    .timeline-event
+  ) {
+  border-color: rgba(24, 45, 70, 0.2);
+  background-color: #fff;
+  color: #172334;
+}
+html[data-theme="light"]
+  :is(
+    .dashboard-hero,
+    .match-detail-hero,
+    .next-match-feature,
+    .admin-robot-card
+  ) {
+  background-image: linear-gradient(140deg, #fff, #e8eef5);
+}
+html[data-theme="light"]
+  :is(
+    .dashboard-hero,
+    .dashboard-section,
+    .admin-panel,
+    .match-card,
+    .referee-games,
+    .match-detail-grid,
+    .sports-editorial,
+    .agenda-list,
+    .standings-table-wrap,
+    .admin-match-list
+  )
+  :is(p, small, label, span, strong, th, td, a) {
+  color: inherit;
+}
+html[data-theme="light"] :is(.users-table, .standings-table) :is(th, td) {
+  border-color: rgba(24, 45, 70, 0.16);
+  background: #fff;
+  color: #172334;
+}
+html[data-theme="light"]
+  :is(
+    .sidebar-nav a.active,
+    .filter-tabs button.active,
+    .admin-tabs button.active
+  ) {
+  background: #e7edf4;
+  color: #11294b;
+}
+html[data-theme="light"]
+  .landing-shell
+  :is(
+    .scene-copy,
+    .manifesto-copy,
+    .section-head,
+    .landing-footer,
+    .landing-links
+  ) {
+  color: #172334;
+}
+html[data-theme="light"]
+  .landing-shell
+  :is(.scene-copy p, .section-head p, .landing-footer p, .manifesto-copy p) {
+  color: #46586d;
+}
+html[data-theme="light"]
+  .landing-shell
+  :is(.manifesto-line, .sports-title, .section-title, .games-title) {
+  color: #172334;
+}
+html[data-theme="light"] :is(input, select, textarea) {
+  border-color: #8796a8;
+  background: #fff;
+  color: #111d2b;
+}
+html[data-theme="light"]
+  :is(
+    .landing-links,
+    .landing-shell p,
+    .app-shell p,
+    .app-shell small,
+    .app-sidebar small
+  ) {
+  color: #46586d;
+}
+html[data-theme="light"] .accessibility-tools {
+  color: #172334;
+}
+html[data-theme="light"] .accessibility-trigger,
+html[data-theme="light"] .accessibility-panel {
+  border-color: #697b90;
+  background: #fff;
+  color: #172334;
+}
+html[data-theme="light"] .accessibility-panel > p,
+html[data-theme="light"] .accessibility-panel > small {
+  color: #46586d;
+}
+html[data-theme="light"] .accessibility-panel button:hover,
+html[data-theme="light"] .accessibility-panel button.is-selected {
+  background: #e9edf2;
+}
+
+html[data-theme="contrast"] {
+  color-scheme: dark;
+  --ink: #000;
+  --ink-2: #000;
+  --panel: #050505;
+  --panel-2: #111;
+  --paper: #fff;
+  --paper-2: #fff;
+  --muted: #f2f2f2;
+  --muted-2: #e3e3e3;
+  --line: rgba(255, 255, 255, 0.55);
+  --line-strong: #fff;
+  --accent: #ffed00;
+}
+html[data-theme="contrast"] body,
+html[data-theme="contrast"] .landing-shell,
+html[data-theme="contrast"] .app-shell,
+html[data-theme="contrast"] .app-workspace {
+  background: #000;
+  color: #fff;
+}
+html[data-theme="contrast"]
+  :is(
+    .app-card,
+    .dashboard-card,
+    .standings-card,
+    .match-card,
+    .agenda-card,
+    .profile-card,
+    .sports-card,
+    .admin-card,
+    .app-sidebar,
+    .app-topbar,
+    .app-content
+  ) {
+  border: 2px solid #fff;
+  background: #050505;
+  color: #fff;
+}
+html[data-theme="contrast"]
+  :is(p, small, label, a, li, input, select, textarea) {
+  font-weight: 600;
+}
+html[data-theme="contrast"] :focus-visible {
+  outline: 4px solid #ffed00;
+  outline-offset: 4px;
+}
+
+html[data-theme="warm"] {
+  color-scheme: light;
+  --ink: #f4efe5;
+  --ink-2: #ede5d8;
+  --panel: #fffaf0;
+  --panel-2: #f4ecdf;
+  --paper: #302719;
+  --paper-2: #493d2c;
+  --muted: #62543f;
+  --muted-2: #74654e;
+  --line: rgba(72, 54, 27, 0.2);
+  --line-strong: rgba(72, 54, 27, 0.34);
+  --accent: #806400;
+}
+html[data-theme="warm"] body,
+html[data-theme="warm"] .landing-shell,
+html[data-theme="warm"] .app-shell,
+html[data-theme="warm"] .app-workspace,
+html[data-theme="warm"] .cinematic-sequence {
+  background: #f4efe5;
+  color: #302719;
+}
+html[data-theme="warm"]
+  :is(
+    .app-sidebar,
+    .app-topbar,
+    .app-content,
+    .app-card,
+    .dashboard-card,
+    .standings-card,
+    .match-card,
+    .agenda-card,
+    .profile-card,
+    .sports-card,
+    .admin-card,
+    .accessibility-panel
+  ) {
+  border-color: rgba(72, 54, 27, 0.2);
+  background-color: #fffaf0;
+  color: #302719;
+}
+
+@media (max-width: 600px) {
+  .accessibility-tools {
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+  .accessibility-trigger {
+    min-height: 46px;
+    padding-inline: 13px;
+  }
+}
+
+@media (forced-colors: active) {
+  .accessibility-trigger,
+  .accessibility-panel,
+  .accessibility-panel button {
+    border: 1px solid ButtonText;
+    forced-color-adjust: auto;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1787229243221,
+      "tag": "0000_rapid_young_avengers",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1790596593491,
+      "tag": "0001_lean_prism",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1790596716620,
+      "tag": "0002_stormy_prodigy",
+      "breakpoints": true
+    }
+  ]
+}
